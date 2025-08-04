@@ -17,7 +17,7 @@ Changelog:
 
 
 
-Hi there! This is the source code of the paper “Learning to Simulate Self-driven Particles System with Coordinated Policy Optimization”. 
+Hi there! This is the source code of the paper "Learning to Simulate Self-driven Particles System with Coordinated Policy Optimization". 
 
 
 Please following the tutorial below to kickoff the reproduction of our results.
@@ -286,4 +286,3 @@ pydantic==1.9.0
   year={2021}
 }
 ```
-
