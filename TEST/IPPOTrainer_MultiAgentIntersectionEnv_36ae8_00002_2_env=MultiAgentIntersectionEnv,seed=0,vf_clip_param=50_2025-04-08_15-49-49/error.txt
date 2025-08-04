@@ -1,0 +1,16 @@
+Failure # 1 (occurred at 2025-04-08_15-55-50)
+Traceback (most recent call last):
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/tune/execution/ray_trial_executor.py", line 1070, in get_next_executor_event
+    future_result = ray.get(ready_future)
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/_private/client_mode_hook.py", line 105, in wrapper
+    return func(*args, **kwargs)
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/_private/worker.py", line 2311, in get
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: IPPOTrainer
+	actor_id: 62728a4247daeb01b2a82ff201000000
+	pid: 149709
+	namespace: f73553da-32a6-40c8-a4f3-c63c130092ad
+	ip: 172.31.139.253
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+

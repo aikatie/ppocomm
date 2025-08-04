@@ -1,0 +1,39 @@
+Failure # 1 (occurred at 2025-04-08_15-57-48)
+Traceback (most recent call last):
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/tune/execution/ray_trial_executor.py", line 1070, in get_next_executor_event
+    future_result = ray.get(ready_future)
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/_private/client_mode_hook.py", line 105, in wrapper
+    return func(*args, **kwargs)
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/_private/worker.py", line 2311, in get
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: IPPOTrainer
+	actor_id: 8a1719d0a880b89381c4ce2601000000
+	pid: 186595
+	namespace: f73553da-32a6-40c8-a4f3-c63c130092ad
+	ip: 172.31.139.253
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+Failure # 2 (occurred at 2025-04-08_16-00-47)
+Traceback (most recent call last):
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/tune/execution/ray_trial_executor.py", line 1070, in get_next_executor_event
+    future_result = ray.get(ready_future)
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/_private/client_mode_hook.py", line 105, in wrapper
+    return func(*args, **kwargs)
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/_private/worker.py", line 2311, in get
+    raise value
+ray.exceptions.RayActorError: The actor died because of an error raised in its creation task, [36mray::IPPOTrainer.__init__()[39m (pid=198634, ip=172.31.139.253, repr=IPPOTrainer)
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/rllib/algorithms/algorithm.py", line 444, in __init__
+    **kwargs,
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/tune/trainable/trainable.py", line 169, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/rllib/algorithms/algorithm.py", line 573, in setup
+    logdir=self.logdir,
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 173, in __init__
+    local_worker=local_worker,
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 253, in _setup
+    spaces = self._get_spaces_from_remote_worker()
+  File "/home/awsl/anaconda3/envs/copo/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 288, in _get_spaces_from_remote_worker
+    "Could not get observation and action spaces from remote "
+ValueError: Could not get observation and action spaces from remote worker. Maybe specify them manually in the config?
+
